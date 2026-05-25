@@ -5,7 +5,8 @@ import pandas as pd
 df = pd.read_csv('sales_data.csv', encoding='utf-8')
 
 # 2. 日付型への変換と期間の絞り込み
-df['売上日付'] = pd.to_datetime(df['売上日付'])
+df['売上日付'] = pd.to_datetime(df['売上日付'], errors='coerce')
+df = df.dropna(subset=['売上日付'])
 start_date = pd.to_datetime('2023-04-01') # 令和5年4月1日
 end_date = pd.to_datetime('2026-04-30')   # 令和8年4月30日
 df_filtered = df[(df['売上日付'] >= start_date) & (df['売上日付'] <= end_date)].copy()
