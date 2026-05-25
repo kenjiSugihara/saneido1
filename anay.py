@@ -2,7 +2,7 @@ import pandas as pd
 
 # 1. データの読み込み
 # ※文字化けする場合は encoding='shift_jis' または 'cp932' に変更してください
-df = pd.read_csv('加工：R4.4～R8.4オンラインショップ売上明細.xlsx - 売上明細表.csv', encoding='utf-8')
+df = pd.read_csv('sales_data.csv', encoding='utf-8')
 
 # 2. 日付型への変換と期間の絞り込み
 df['売上日付'] = pd.to_datetime(df['売上日付'])
